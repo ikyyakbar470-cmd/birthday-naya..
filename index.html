@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎂 Happy 18th Birthday Naya 🎂</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Happy 18th Birthday Naya 🎂</title>
+    <style>
+/* =====================================================
+   DASAR (TEMA UNGU)
+===================================================== */
 
-<style>
-/* DASAR (TEMA UNGU) */
 * {
     box-sizing: border-box;
 }
@@ -25,6 +26,7 @@ body {
     background: #d8c4e8;
 }
 
+/* BACKGROUND SEPERTI BUKU (GARIS UNGU HALUS) */
 body::before {
     content: "";
     position: fixed;
@@ -40,6 +42,7 @@ body::before {
     z-index: -2;
 }
 
+/* EMOJI DEKORASI */
 .emoji-decoration {
     position: fixed;
     z-index: 1;
@@ -50,10 +53,15 @@ body::before {
 }
 
 @keyframes emojiFloat {
-    0%, 100% { transform: translateY(0) rotate(-8deg); }
-    50% { transform: translateY(-25px) rotate(8deg); }
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(8deg);
+    }
 }
 
+/* BINTANG */
 .star {
     position: fixed;
     width: 6px;
@@ -66,10 +74,17 @@ body::before {
 }
 
 @keyframes twinkle {
-    from { opacity: .3; transform: scale(.7); }
-    to { opacity: 1; transform: scale(1.4); }
+    from {
+        opacity: .3;
+        transform: scale(.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
 }
 
+/* CONTAINER TOMBOL MUSIK */
 .music-container {
     position: fixed;
     top: 18px;
@@ -123,9 +138,16 @@ body::before {
     background: #e3ccf0;
 }
 
-.music-icon { font-size: 20px; }
-.music-status { font-size: 12px; opacity: .8; }
+.music-icon {
+    font-size: 20px;
+}
 
+.music-status {
+    font-size: 12px;
+    opacity: .8;
+}
+
+/* KERTAS UTAMA */
 .container {
     position: relative;
     z-index: 2;
@@ -138,6 +160,7 @@ body::before {
     box-shadow: 0 15px 45px rgba(60,25,80,.25);
 }
 
+/* GARIS MERAH BUKU (DIBUAT UNGU LEMBUT) */
 .container::before {
     content: "";
     position: absolute;
@@ -148,6 +171,7 @@ body::before {
     background: rgba(180,100,210,.3);
 }
 
+/* JUDUL */
 h1 {
     position: relative;
     font-family: Georgia, "Times New Roman", serif;
@@ -159,8 +183,14 @@ h1 {
 }
 
 @keyframes titleAnimation {
-    from { opacity: 0; transform: translateY(-30px) scale(.9); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .title-emoji {
@@ -171,8 +201,12 @@ h1 {
 }
 
 @keyframes emojiBounce {
-    from { transform: translateY(0) rotate(-5deg); }
-    to { transform: translateY(-8px) rotate(5deg); }
+    from {
+        transform: translateY(0) rotate(-5deg);
+    }
+    to {
+        transform: translateY(-8px) rotate(5deg);
+    }
 }
 
 .birthday-emojis {
@@ -181,6 +215,7 @@ h1 {
     letter-spacing: 7px;
 }
 
+/* ULANG TAHUN KE-18 */
 .eighteen {
     display: inline-block;
     margin: 15px auto 18px;
@@ -199,8 +234,12 @@ h1 {
 }
 
 @keyframes birthday18 {
-    from { transform: rotate(-1deg) scale(1); }
-    to { transform: rotate(1deg) scale(1.04); }
+    from {
+        transform: rotate(-1deg) scale(1);
+    }
+    to {
+        transform: rotate(1deg) scale(1.04);
+    }
 }
 
 .subtitle {
@@ -210,6 +249,7 @@ h1 {
     margin-bottom: 30px;
 }
 
+/* FOTO UTAMA */
 .main-photo {
     width: 280px;
     height: 280px;
@@ -222,10 +262,15 @@ h1 {
 }
 
 @keyframes floating {
-    0%, 100% { transform: translateY(0) rotate(-1deg); }
-    50% { transform: translateY(-12px) rotate(1deg); }
+    0%, 100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(1deg);
+    }
 }
 
+/* PESAN */
 .message {
     max-width: 750px;
     margin: 45px auto;
@@ -239,8 +284,11 @@ h1 {
     line-height: 1.9;
 }
 
-.message p { margin: 15px 0; }
+.message p {
+    margin: 15px 0;
+}
 
+/* TOMBOL */
 .normal-button {
     border: none;
     padding: 14px 28px;
@@ -259,6 +307,7 @@ h1 {
     background: #cca0e6;
 }
 
+/* PESAN RAHASIA */
 #secretMessage {
     display: none;
     max-width: 700px;
@@ -273,10 +322,17 @@ h1 {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* GALERI */
 .memory-section {
     margin-top: 70px;
     padding-top: 40px;
@@ -304,6 +360,7 @@ h1 {
     padding: 10px;
 }
 
+/* KERTAS FOTO */
 .memory-card {
     position: relative;
     min-height: 280px;
@@ -347,6 +404,7 @@ h1 {
     font-size: 14px;
 }
 
+/* FOTO POPUP */
 #photoPopup {
     position: fixed;
     inset: 0;
@@ -377,6 +435,7 @@ h1 {
     z-index: 5;
 }
 
+/* HATI */
 .heart {
     position: fixed;
     bottom: -50px;
@@ -387,8 +446,14 @@ h1 {
 }
 
 @keyframes heartUp {
-    from { transform: translateY(0) rotate(0deg); opacity: 1; }
-    to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 footer {
@@ -400,30 +465,77 @@ footer {
     font-size: 14px;
 }
 
+/* RESPONSIVE */
 @media(max-width: 700px) {
-    .container { margin: 15px 10px; padding: 40px 18px 60px; }
-    .container::before { left: 35px; }
-    .gallery { grid-template-columns: repeat(2, 1fr); gap: 25px 12px; }
-    .memory-card { min-height: 205px; padding: 8px 8px 28px; }
-    .memory-card img { height: 160px; }
-    .main-photo { width: 230px; height: 230px; }
-    .message { padding: 20px; font-size: 16px; }
-    .eighteen { font-size: 18px; padding: 10px 18px; }
-    .subtitle { font-size: 19px; }
-    .music-container { top: 10px; right: 10px; }
-    .music-button, .change-music-btn { padding: 9px 14px; font-size: 13px; }
-    .music-status { display: none; }
-    .emoji-decoration { font-size: 23px; }
+    .container {
+        margin: 15px 10px;
+        padding: 40px 18px 60px;
+    }
+    .container::before {
+        left: 35px;
+    }
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 12px;
+    }
+    .memory-card {
+        min-height: 205px;
+        padding: 8px 8px 28px;
+    }
+    .memory-card img {
+        height: 160px;
+    }
+    .main-photo {
+        width: 230px;
+        height: 230px;
+    }
+    .message {
+        padding: 20px;
+        font-size: 16px;
+    }
+    .eighteen {
+        font-size: 18px;
+        padding: 10px 18px;
+    }
+    .subtitle {
+        font-size: 19px;
+    }
+    .music-container {
+        top: 10px;
+        right: 10px;
+    }
+    .music-button, .change-music-btn {
+        padding: 9px 14px;
+        font-size: 13px;
+    }
+    .music-status {
+        display: none;
+    }
+    .emoji-decoration {
+        font-size: 23px;
+    }
 }
 
 @media(max-width: 450px) {
-    .gallery { grid-template-columns: 1fr 1fr; gap: 20px 10px; }
-    .memory-card { min-height: 180px; }
-    .memory-card img { height: 135px; }
-    h1 { font-size: 42px; }
-    .birthday-emojis { font-size: 23px; letter-spacing: 3px; }
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 10px;
+    }
+    .memory-card {
+        min-height: 180px;
+    }
+    .memory-card img {
+        height: 135px;
+    }
+    h1 {
+        font-size: 42px;
+    }
+    .birthday-emojis {
+        font-size: 23px;
+        letter-spacing: 3px;
+    }
 }
-</style>
+    </style>
 </head>
 
 <body>
@@ -438,7 +550,7 @@ footer {
 <div class="emoji-decoration" style="top:88%;left:12%;animation-delay:1s;">🌸</div>
 <div class="emoji-decoration" style="top:90%;right:12%;animation-delay:3s;">🥳</div>
 
-<!-- AUDIO PLAYER (MENGGUNKAN FILE LAGU DI REPOSITORI) -->
+<!-- AUDIO PLAYER -->
 <audio id="musik" loop preload="auto">
     <source id="audioSource" src="ulangtahun.mp3" type="audio/mpeg">
     Browser kamu tidak mendukung audio.
@@ -491,7 +603,7 @@ footer {
     <p>✨ Semoga di umur yang baru ini, semua hal baik datang satu per satu. 🌸</p>
     <p>💕 Semoga selalu diberikan kesehatan, kebahagiaan, dan banyak alasan untuk tersenyum. 😊</p>
     <p>🎁 Semoga semua impian dan harapanmu bisa tercapai satu per satu. ✨</p>
-    <p>💜 Selamat ulang tahun, Naya! 💜</p>
+    <p>💜 barakallah fi umrik, Naya! 💜</p>
 </div>
 
 <!-- TOMBOL PESAN RAHASIA -->
@@ -513,35 +625,24 @@ footer {
     <h2>📸 Foto-Foto Kenangan 💜</h2>
     <p class="memory-description">📖 Beberapa momen yang sayang untuk dilupakan... 🥹💜</p>
 
+    <!-- TAMBAHKAN/UBAH FOTO KAMU DI SINI -->
     <div class="gallery">
-        <div class="memory-card" style="--rotation:-2deg" onclick="openPhoto('foto hbd 1.jpeg')">
+        <div class="memory-card" style="--rotation:-2deg" onclick="openPhoto('foto1.jpeg')">
             <div class="tape"></div>
-            <img src="foto hbd 1.jpeg" alt="Foto Kenangan">
+            <img src="foto1.jpeg" alt="Foto Kenangan">
             <div class="photo-caption">💖 Momen indah 💖</div>
         </div>
 
-        <div class="memory-card" style="--rotation:1.5deg" onclick="openPhoto('foto beautyfull.jpeg')">
+        <div class="memory-card" style="--rotation:1.5deg" onclick="openPhoto('foto2.jpeg')">
             <div class="tape"></div>
-            <img src="foto beautyfull.jpeg" alt="Foto Kenangan">
+            <img src="foto2.jpeg" alt="Foto Kenangan">
             <div class="photo-caption">💖 Momen indah 💖</div>
         </div>
 
-        <div class="memory-card" style="--rotation:-1deg" onclick="openPhoto('foto beautyfull 2.jpeg')">
+        <div class="memory-card" style="--rotation:-1deg" onclick="openPhoto('foto3.jpeg')">
             <div class="tape"></div>
-            <img src="foto beautyfull 2.jpeg" alt="Foto Kenangan">
+            <img src="foto3.jpeg" alt="Foto Kenangan">
             <div class="photo-caption">💖 Momen indah 💖</div>
-        </div>
-
-        <div class="memory-card" style="--rotation:2deg" onclick="openPhoto('foto child.jpeg')">
-            <div class="tape"></div>
-            <img src="foto child.jpeg" alt="Foto Kenangan">
-            <div class="photo-caption">💖 Masa Kecil 💖</div>
-        </div>
-
-        <div class="memory-card" style="--rotation:-1.5deg" onclick="openPhoto('foto about you.jpeg')">
-            <div class="tape"></div>
-            <img src="foto about you.jpeg" alt="Foto Kenangan">
-            <div class="photo-caption">💖 About You 💖</div>
         </div>
     </div>
 </div>
@@ -559,9 +660,12 @@ footer {
 </div>
 
 <script>
+/* =====================================================
+   PLAYLIST MUSIK
+===================================================== */
 const playlist = [
     { title: "Musik 1", src: "ulangtahun.mp3" },
-    { title: "Musik 2", src: "ulangtahun2.mp3" }
+    { title: "Musik 2", src: "ulangtahun2.mp3" },
     { title: "Musik 3", src: "ulangtahun3.mp3" }
 ];
 
@@ -594,7 +698,7 @@ function putarMusik() {
         .then(() => updateMusicButton())
         .catch(err => {
             console.log("Audio error:", err);
-            alert("Klik layar sekali lalu coba putar musik lagi.");
+            alert("Musik tidak dapat diputar. Pastikan file lagu ada di folder repositori kamu.");
         });
     } else {
         musik.pause();
@@ -620,6 +724,9 @@ function gantiMusik() {
 musik.addEventListener("play", updateMusicButton);
 musik.addEventListener("pause", updateMusicButton);
 
+/* =====================================================
+   PESAN RAHASIA
+===================================================== */
 function showMessage() {
     const message = document.getElementById("secretMessage");
     if (message.style.display === "block") {
@@ -630,6 +737,9 @@ function showMessage() {
     }
 }
 
+/* =====================================================
+   FOTO POPUP
+===================================================== */
 function openPhoto(src) {
     const popup = document.getElementById("photoPopup");
     const image = document.getElementById("popupImage");
@@ -641,6 +751,9 @@ function closePhoto() {
     document.getElementById("photoPopup").style.display = "none";
 }
 
+/* =====================================================
+   EFEK HATI UNGU TERBANG
+===================================================== */
 function createHeart() {
     const heart = document.createElement("div");
     heart.className = "heart";
