@@ -1,781 +1,904 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎂 Happy 18th Birthday Naya 🎂</title>
+
     <style>
-/* =====================================================
-   DASAR (TEMA UNGU)
-===================================================== */
+        /* =====================================================
+           DASAR (TEMA UNGU)
+        ===================================================== */
+        * {
+            box-sizing: border-box;
+        }
 
-* {
-    box-sizing: border-box;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #4a3055;
+            overflow-x: hidden;
+            background: #d8c4e8;
+        }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #4a3055;
-    overflow-x: hidden;
-    background: #d8c4e8;
-}
+        /* =====================================================
+           BACKGROUND SEPERTI BUKU (GARIS UNGU HALUS)
+        ===================================================== */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .5;
+            background-image: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 31px,
+                    rgba(120, 70, 150, .13) 32px);
+            z-index: -2;
+        }
 
-/* BACKGROUND SEPERTI BUKU (GARIS UNGU HALUS) */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: .5;
-    background-image: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 31px,
-        rgba(120,70,150,.13) 32px
-    );
-    z-index: -2;
-}
+        /* =====================================================
+           EMOJI DEKORASI
+        ===================================================== */
+        .emoji-decoration {
+            position: fixed;
+            z-index: 1;
+            pointer-events: none;
+            font-size: 30px;
+            opacity: .8;
+            animation: emojiFloat 6s ease-in-out infinite;
+        }
 
-/* EMOJI DEKORASI */
-.emoji-decoration {
-    position: fixed;
-    z-index: 1;
-    pointer-events: none;
-    font-size: 30px;
-    opacity: .8;
-    animation: emojiFloat 6s ease-in-out infinite;
-}
+        @keyframes emojiFloat {
 
-@keyframes emojiFloat {
-    0%, 100% {
-        transform: translateY(0) rotate(-8deg);
-    }
-    50% {
-        transform: translateY(-25px) rotate(8deg);
-    }
-}
+            0%,
+            100% {
+                transform: translateY(0) rotate(-8deg);
+            }
 
-/* BINTANG */
-.star {
-    position: fixed;
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-    opacity: .8;
-    animation: twinkle 2s infinite alternate;
-    z-index: 1;
-}
+            50% {
+                transform: translateY(-25px) rotate(8deg);
+            }
+        }
 
-@keyframes twinkle {
-    from {
-        opacity: .3;
-        transform: scale(.7);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1.4);
-    }
-}
+        /* =====================================================
+           BINTANG
+        ===================================================== */
+        .star {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            opacity: .8;
+            animation: twinkle 2s infinite alternate;
+            z-index: 1;
+        }
 
-/* CONTAINER TOMBOL MUSIK */
-.music-container {
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    z-index: 10000;
-    display: flex;
-    gap: 8px;
-}
+        @keyframes twinkle {
+            from {
+                opacity: .3;
+                transform: scale(.7);
+            }
 
-.music-button {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 12px 18px;
-    border-radius: 50px;
-    border: 2px solid #b892d1;
-    background: #f8f2fc;
-    color: #5c3275;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(80,30,100,.2);
-    transition: .3s;
-}
+            to {
+                opacity: 1;
+                transform: scale(1.4);
+            }
+        }
 
-.music-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(80,30,100,.25);
-}
+        /* =====================================================
+           CONTAINER TOMBOL MUSIK
+        ===================================================== */
+        .music-container {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            z-index: 10000;
+            display: flex;
+            gap: 8px;
+        }
 
-.music-button.playing {
-    background: #e3ccf0;
-    border-color: #9b68bc;
-}
+        .music-button {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 12px 18px;
+            border-radius: 50px;
+            border: 2px solid #b892d1;
+            background: #f8f2fc;
+            color: #5c3275;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(80, 30, 100, .2);
+            transition: .3s;
+        }
 
-.change-music-btn {
-    padding: 12px 15px;
-    border-radius: 50px;
-    border: 2px solid #b892d1;
-    background: #f8f2fc;
-    color: #5c3275;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(80,30,100,.2);
-    transition: .3s;
-}
+        .music-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(80, 30, 100, .25);
+        }
 
-.change-music-btn:hover {
-    transform: translateY(-3px);
-    background: #e3ccf0;
-}
+        .music-button.playing {
+            background: #e3ccf0;
+            border-color: #9b68bc;
+        }
 
-.music-icon {
-    font-size: 20px;
-}
+        .change-music-btn {
+            padding: 12px 15px;
+            border-radius: 50px;
+            border: 2px solid #b892d1;
+            background: #f8f2fc;
+            color: #5c3275;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(80, 30, 100, .2);
+            transition: .3s;
+        }
 
-.music-status {
-    font-size: 12px;
-    opacity: .8;
-}
+        .change-music-btn:hover {
+            transform: translateY(-3px);
+            background: #e3ccf0;
+        }
 
-/* KERTAS UTAMA */
-.container {
-    position: relative;
-    z-index: 2;
-    max-width: 1050px;
-    margin: 35px auto;
-    padding: 55px 30px 80px;
-    text-align: center;
-    background: #fcf8ff;
-    border-radius: 5px;
-    box-shadow: 0 15px 45px rgba(60,25,80,.25);
-}
+        .music-icon {
+            font-size: 20px;
+        }
 
-/* GARIS MERAH BUKU (DIBUAT UNGU LEMBUT) */
-.container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 65px;
-    width: 2px;
-    background: rgba(180,100,210,.3);
-}
+        .music-status {
+            font-size: 12px;
+            opacity: .8;
+        }
 
-/* JUDUL */
-h1 {
-    position: relative;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(40px, 8vw, 78px);
-    color: #5c3275;
-    margin: 10px 0;
-    text-shadow: 2px 3px 0 rgba(100,50,130,.15);
-    animation: titleAnimation 1.5s ease;
-}
+        /* =====================================================
+           KERTAS UTAMA
+        ===================================================== */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1050px;
+            margin: 35px auto;
+            padding: 55px 30px 80px;
+            text-align: center;
+            background: #fcf8ff;
+            border-radius: 5px;
+            box-shadow: 0 15px 45px rgba(60, 25, 80, .25);
+        }
 
-@keyframes titleAnimation {
-    from {
-        opacity: 0;
-        transform: translateY(-30px) scale(.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
+        /* GARIS MERAH BUKU (DIBUAT UNGU LEMBUT) */
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 65px;
+            width: 2px;
+            background: rgba(180, 100, 210, .3);
+        }
 
-.title-emoji {
-    display: inline-block;
-    font-size: 38px;
-    margin: 0 6px;
-    animation: emojiBounce 1.5s infinite alternate;
-}
+        /* =====================================================
+           JUDUL
+        ===================================================== */
+        h1 {
+            position: relative;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(40px, 8vw, 78px);
+            color: #5c3275;
+            margin: 10px 0;
+            text-shadow: 2px 3px 0 rgba(100, 50, 130, .15);
+            animation: titleAnimation 1.5s ease;
+        }
 
-@keyframes emojiBounce {
-    from {
-        transform: translateY(0) rotate(-5deg);
-    }
-    to {
-        transform: translateY(-8px) rotate(5deg);
-    }
-}
+        @keyframes titleAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(.9);
+            }
 
-.birthday-emojis {
-    font-size: 30px;
-    margin: 10px 0;
-    letter-spacing: 7px;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
 
-/* ULANG TAHUN KE-18 */
-.eighteen {
-    display: inline-block;
-    margin: 15px auto 18px;
-    padding: 13px 28px;
-    color: #4c2363;
-    background: #e3ccf0;
-    border: 2px dashed #a879cc;
-    border-radius: 8px;
-    font-family: Georgia, serif;
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 3px 4px 0 rgba(90,40,120,.15);
-    transform: rotate(-1deg);
-    animation: birthday18 2s ease-in-out infinite alternate;
-}
+        /* =====================================================
+           EMOJI JUDUL
+        ===================================================== */
+        .title-emoji {
+            display: inline-block;
+            font-size: 38px;
+            margin: 0 6px;
+            animation: emojiBounce 1.5s infinite alternate;
+        }
 
-@keyframes birthday18 {
-    from {
-        transform: rotate(-1deg) scale(1);
-    }
-    to {
-        transform: rotate(1deg) scale(1.04);
-    }
-}
+        @keyframes emojiBounce {
+            from {
+                transform: translateY(0) rotate(-5deg);
+            }
 
-.subtitle {
-    font-family: Georgia, serif;
-    font-size: 23px;
-    color: #72498a;
-    margin-bottom: 30px;
-}
+            to {
+                transform: translateY(-8px) rotate(5deg);
+            }
+        }
 
-/* FOTO UTAMA */
-.main-photo {
-    width: 280px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 9px solid white;
-    box-shadow: 0 10px 25px rgba(60,20,80,.25);
-    animation: floating 4s ease-in-out infinite;
-    cursor: pointer;
-}
+        /* =====================================================
+           EMOJI ULANG TAHUN
+        ===================================================== */
+        .birthday-emojis {
+            font-size: 30px;
+            margin: 10px 0;
+            letter-spacing: 7px;
+        }
 
-@keyframes floating {
-    0%, 100% {
-        transform: translateY(0) rotate(-1deg);
-    }
-    50% {
-        transform: translateY(-12px) rotate(1deg);
-    }
-}
+        /* =====================================================
+           ULANG TAHUN KE-18
+        ===================================================== */
+        .eighteen {
+            display: inline-block;
+            margin: 15px auto 18px;
+            padding: 13px 28px;
+            color: #4c2363;
+            background: #e3ccf0;
+            border: 2px dashed #a879cc;
+            border-radius: 8px;
+            font-family: Georgia, serif;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 3px 4px 0 rgba(90, 40, 120, .15);
+            transform: rotate(-1deg);
+            animation: birthday18 2s ease-in-out infinite alternate;
+        }
 
-/* PESAN */
-.message {
-    max-width: 750px;
-    margin: 45px auto;
-    padding: 30px 35px;
-    text-align: left;
-    background: #fcf8ff;
-    border-left: 5px solid #b582d6;
-    box-shadow: 0 5px 15px rgba(70,30,90,.12);
-    font-family: Georgia, serif;
-    font-size: 18px;
-    line-height: 1.9;
-}
+        @keyframes birthday18 {
+            from {
+                transform: rotate(-1deg) scale(1);
+            }
 
-.message p {
-    margin: 15px 0;
-}
+            to {
+                transform: rotate(1deg) scale(1.04);
+            }
+        }
 
-/* TOMBOL */
-.normal-button {
-    border: none;
-    padding: 14px 28px;
-    border-radius: 10px;
-    background: #dcb8f2;
-    color: #4a2061;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 5px 12px rgba(70,30,90,.2);
-    transition: .3s;
-}
+        /* =====================================================
+           SUBTITLE
+        ===================================================== */
+        .subtitle {
+            font-family: Georgia, serif;
+            font-size: 23px;
+            color: #72498a;
+            margin-bottom: 30px;
+        }
 
-.normal-button:hover {
-    transform: translateY(-3px) scale(1.03);
-    background: #cca0e6;
-}
+        /* =====================================================
+           FOTO UTAMA
+        ===================================================== */
+        .main-photo {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 9px solid white;
+            box-shadow: 0 10px 25px rgba(60, 20, 80, .25);
+            animation: floating 4s ease-in-out infinite;
+            cursor: pointer;
+        }
 
-/* PESAN RAHASIA */
-#secretMessage {
-    display: none;
-    max-width: 700px;
-    margin: 25px auto;
-    padding: 25px;
-    background: #f5e8ff;
-    border: 2px dashed #a873cc;
-    box-shadow: 3px 5px 15px rgba(70,30,90,.12);
-    font-family: Georgia, serif;
-    line-height: 1.8;
-    animation: fadeIn .8s;
-}
+        @keyframes floating {
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+            0%,
+            100% {
+                transform: translateY(0) rotate(-1deg);
+            }
 
-/* GALERI */
-.memory-section {
-    margin-top: 70px;
-    padding-top: 40px;
-    border-top: 2px dashed rgba(130,70,170,.25);
-}
+            50% {
+                transform: translateY(-12px) rotate(1deg);
+            }
+        }
 
-.memory-section h2 {
-    font-family: Georgia, serif;
-    font-size: 34px;
-    color: #5c3275;
-    margin-bottom: 10px;
-}
+        /* =====================================================
+           PESAN
+        ===================================================== */
+        .message {
+            max-width: 750px;
+            margin: 45px auto;
+            padding: 30px 35px;
+            text-align: left;
+            background: #fcf8ff;
+            border-left: 5px solid #b582d6;
+            box-shadow: 0 5px 15px rgba(70, 30, 90, .12);
+            font-family: Georgia, serif;
+            font-size: 18px;
+            line-height: 1.9;
+        }
 
-.memory-description {
-    color: #72498a;
-    margin-bottom: 35px;
-    font-family: Georgia, serif;
-    font-size: 18px;
-}
+        .message p {
+            margin: 15px 0;
+        }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px 25px;
-    padding: 10px;
-}
+        /* =====================================================
+           TOMBOL
+        ===================================================== */
+        .normal-button {
+            border: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            background: #dcb8f2;
+            color: #4a2061;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 12px rgba(70, 30, 90, .2);
+            transition: .3s;
+        }
 
-/* KERTAS FOTO */
-.memory-card {
-    position: relative;
-    min-height: 280px;
-    padding: 13px 13px 38px;
-    background: #ffffff;
-    border: 1px solid #dcd0e8;
-    box-shadow: 3px 7px 15px rgba(50,20,70,.2);
-    cursor: pointer;
-    transition: .35s;
-    transform: rotate(var(--rotation, 0deg));
-}
+        .normal-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            background: #cca0e6;
+        }
 
-.memory-card:hover {
-    transform: translateY(-8px) rotate(0deg) scale(1.03);
-    box-shadow: 5px 15px 25px rgba(50,20,70,.3);
-}
+        /* =====================================================
+           PESAN RAHASIA
+        ===================================================== */
+        #secretMessage {
+            display: none;
+            max-width: 700px;
+            margin: 25px auto;
+            padding: 25px;
+            background: #f5e8ff;
+            border: 2px dashed #a873cc;
+            box-shadow: 3px 5px 15px rgba(70, 30, 90, .12);
+            font-family: Georgia, serif;
+            line-height: 1.8;
+            animation: fadeIn .8s;
+        }
 
-.memory-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-.tape {
-    position: absolute;
-    top: -13px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    width: 75px;
-    height: 25px;
-    background: rgba(195,160,225,.75);
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
-    z-index: 3;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.photo-caption {
-    padding-top: 12px;
-    font-family: "Comic Sans MS", cursive;
-    color: #5c3275;
-    font-size: 14px;
-}
+        /* =====================================================
+           GALERI
+        ===================================================== */
+        .memory-section {
+            margin-top: 70px;
+            padding-top: 40px;
+            border-top: 2px dashed rgba(130, 70, 170, .25);
+        }
 
-/* FOTO POPUP */
-#photoPopup {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    background: rgba(25,15,35,.92);
-}
+        .memory-section h2 {
+            font-family: Georgia, serif;
+            font-size: 34px;
+            color: #5c3275;
+            margin-bottom: 10px;
+        }
 
-#popupImage {
-    max-width: 92%;
-    max-height: 85vh;
-    object-fit: contain;
-    background: white;
-    padding: 10px;
-    box-shadow: 0 15px 60px rgba(0,0,0,.6);
-}
+        .memory-description {
+            color: #72498a;
+            margin-bottom: 35px;
+            font-family: Georgia, serif;
+            font-size: 18px;
+        }
 
-.closePhoto {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 55px;
-    color: white;
-    cursor: pointer;
-    z-index: 5;
-}
+        /* =====================================================
+           GALERI FOTO
+        ===================================================== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px 25px;
+            padding: 10px;
+        }
 
-/* HATI */
-.heart {
-    position: fixed;
-    bottom: -50px;
-    font-size: 25px;
-    animation: heartUp 7s linear forwards;
-    z-index: 4;
-    pointer-events: none;
-}
+        /* =====================================================
+           KERTAS FOTO
+        ===================================================== */
+        .memory-card {
+            position: relative;
+            min-height: 280px;
+            padding: 13px 13px 38px;
+            background: #ffffff;
+            border: 1px solid #dcd0e8;
+            box-shadow: 3px 7px 15px rgba(50, 20, 70, .2);
+            cursor: pointer;
+            transition: .35s;
+            transform: rotate(var(--rotation));
+        }
 
-@keyframes heartUp {
-    from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
+        .memory-card:hover {
+            transform: translateY(-8px) rotate(0deg) scale(1.03);
+            box-shadow: 5px 15px 25px rgba(50, 20, 70, .3);
+        }
 
-footer {
-    margin-top: 70px;
-    padding-top: 25px;
-    border-top: 1px dashed #cbb2de;
-    color: #72498a;
-    font-family: Georgia, serif;
-    font-size: 14px;
-}
+        .memory-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
 
-/* RESPONSIVE */
-@media(max-width: 700px) {
-    .container {
-        margin: 15px 10px;
-        padding: 40px 18px 60px;
-    }
-    .container::before {
-        left: 35px;
-    }
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px 12px;
-    }
-    .memory-card {
-        min-height: 205px;
-        padding: 8px 8px 28px;
-    }
-    .memory-card img {
-        height: 160px;
-    }
-    .main-photo {
-        width: 230px;
-        height: 230px;
-    }
-    .message {
-        padding: 20px;
-        font-size: 16px;
-    }
-    .eighteen {
-        font-size: 18px;
-        padding: 10px 18px;
-    }
-    .subtitle {
-        font-size: 19px;
-    }
-    .music-container {
-        top: 10px;
-        right: 10px;
-    }
-    .music-button, .change-music-btn {
-        padding: 9px 14px;
-        font-size: 13px;
-    }
-    .music-status {
-        display: none;
-    }
-    .emoji-decoration {
-        font-size: 23px;
-    }
-}
+        /* =====================================================
+           SELOTIP FOTO (WARNA UNGU SHIMMER HALUS)
+        ===================================================== */
+        .tape {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 75px;
+            height: 25px;
+            background: rgba(195, 160, 225, .75);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+            z-index: 3;
+        }
 
-@media(max-width: 450px) {
-    .gallery {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px 10px;
-    }
-    .memory-card {
-        min-height: 180px;
-    }
-    .memory-card img {
-        height: 135px;
-    }
-    h1 {
-        font-size: 42px;
-    }
-    .birthday-emojis {
-        font-size: 23px;
-        letter-spacing: 3px;
-    }
-}
+        /* =====================================================
+           CAPTION FOTO
+        ===================================================== */
+        .photo-caption {
+            padding-top: 12px;
+            font-family: "Comic Sans MS", cursive;
+            color: #5c3275;
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           FOTO POPUP
+        ===================================================== */
+        #photoPopup {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            background: rgba(25, 15, 35, .92);
+        }
+
+        #popupImage {
+            max-width: 92%;
+            max-height: 85vh;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 15px 60px rgba(0, 0, 0, .6);
+        }
+
+        .closePhoto {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 55px;
+            color: white;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        /* =====================================================
+           HATI
+        ===================================================== */
+        .heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 25px;
+            animation: heartUp 7s linear forwards;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        @keyframes heartUp {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+        footer {
+            margin-top: 70px;
+            padding-top: 25px;
+            border-top: 1px dashed #cbb2de;
+            color: #72498a;
+            font-family: Georgia, serif;
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           HP
+        ===================================================== */
+        @media(max-width: 700px) {
+            .container {
+                margin: 15px 10px;
+                padding: 40px 18px 60px;
+            }
+
+            .container::before {
+                left: 35px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px 12px;
+            }
+
+            .memory-card {
+                min-height: 205px;
+                padding: 8px 8px 28px;
+            }
+
+            .memory-card img {
+                height: 160px;
+            }
+
+            .main-photo {
+                width: 230px;
+                height: 230px;
+            }
+
+            .message {
+                padding: 20px;
+                font-size: 16px;
+            }
+
+            .eighteen {
+                font-size: 18px;
+                padding: 10px 18px;
+            }
+
+            .subtitle {
+                font-size: 19px;
+            }
+
+            .music-container {
+                top: 10px;
+                right: 10px;
+            }
+
+            .music-button {
+                padding: 9px 14px;
+                font-size: 13px;
+            }
+
+            .change-music-btn {
+                padding: 9px 12px;
+                font-size: 13px;
+            }
+
+            .music-status {
+                display: none;
+            }
+
+            .emoji-decoration {
+                font-size: 23px;
+            }
+        }
+
+        /* =====================================================
+           HP KECIL
+        ===================================================== */
+        @media(max-width: 450px) {
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px 10px;
+            }
+
+            .memory-card {
+                min-height: 180px;
+            }
+
+            .memory-card img {
+                height: 135px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .birthday-emojis {
+                font-size: 23px;
+                letter-spacing: 3px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<!-- EMOJI DEKORASI -->
-<div class="emoji-decoration" style="top:8%;left:5%;animation-delay:0s;">🎈</div>
-<div class="emoji-decoration" style="top:18%;right:7%;animation-delay:1s;">🎁</div>
-<div class="emoji-decoration" style="top:35%;left:4%;animation-delay:2s;">💜</div>
-<div class="emoji-decoration" style="top:45%;right:4%;animation-delay:1.5s;">✨</div>
-<div class="emoji-decoration" style="top:65%;left:6%;animation-delay:3s;">🎀</div>
-<div class="emoji-decoration" style="top:75%;right:6%;animation-delay:2.5s;">💖</div>
-<div class="emoji-decoration" style="top:88%;left:12%;animation-delay:1s;">🌸</div>
-<div class="emoji-decoration" style="top:90%;right:12%;animation-delay:3s;">🥳</div>
+    <!-- EMOJI DEKORASI -->
+    <div class="emoji-decoration" style="top:8%;left:5%;animation-delay:0s;">🎈</div>
+    <div class="emoji-decoration" style="top:18%;right:7%;animation-delay:1s;">🎁</div>
+    <div class="emoji-decoration" style="top:35%;left:4%;animation-delay:2s;">💜</div>
+    <div class="emoji-decoration" style="top:45%;right:4%;animation-delay:1.5s;">✨</div>
+    <div class="emoji-decoration" style="top:65%;left:6%;animation-delay:3s;">🎀</div>
+    <div class="emoji-decoration" style="top:75%;right:6%;animation-delay:2.5s;">💖</div>
+    <div class="emoji-decoration" style="top:88%;left:12%;animation-delay:1s;">🌸</div>
+    <div class="emoji-decoration" style="top:90%;right:12%;animation-delay:3s;">🥳</div>
 
-<!-- AUDIO PLAYER -->
-<audio id="musik" loop preload="auto">
-    <source id="audioSource" src="ulangtahun.mp3" type="audio/mpeg">
-    Browser kamu tidak mendukung audio.
-</audio>
+    <!-- MUSIK (AUDIO PLAYER) -->
+    <audio id="musik" loop preload="auto">
+        <source id="audioSource" src="static/musik/ulangtahun.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio.
+    </audio>
 
-<!-- TOMBOL MUSIK -->
-<div class="music-container">
-    <button id="musicButton" class="music-button" onclick="putarMusik()">
-        <span id="musicIcon" class="music-icon">▶️</span>
-        <span id="musicText">Musik 1</span>
-        <span id="musicStatus" class="music-status">• OFF</span>
-    </button>
-
-    <button class="change-music-btn" onclick="gantiMusik()" title="Ganti Musik">
-        🔀 Ganti
-    </button>
-</div>
-
-<!-- BINTANG -->
-<div class="star" style="top:10%;left:8%"></div>
-<div class="star" style="top:20%;left:85%"></div>
-<div class="star" style="top:40%;left:12%"></div>
-<div class="star" style="top:60%;left:92%"></div>
-<div class="star" style="top:75%;left:10%"></div>
-<div class="star" style="top:85%;left:80%"></div>
-
-<!-- KONTEN UTAMA -->
-<div class="container">
-
-<div class="birthday-emojis">🎂 🎈 🎉 ✨ 🎁 💜</div>
-
-<h1>
-    <span class="title-emoji">🎉</span>
-    Happy Birthday NAYA
-    <span class="title-emoji">🎉</span>
-</h1>
-
-<div class="eighteen">🎂 ✨ HAPPY 18TH BIRTHDAY ✨ 🎂</div>
-
-<div class="subtitle">💜 🎀 Untuk NAYA 🎀 💜</div>
-
-<!-- FOTO UTAMA -->
-<img class="main-photo" src="foto utama.jpeg" alt="Foto Naya" onclick="openPhoto(this.src)">
-
-<!-- PESAN UTAMA -->
-<div class="message">
-    <p>🎂 Hari ini bukan hari biasa...</p>
-    <p>🎉 Karena hari ini adalah hari spesial seseorang yang luar biasa. 💜</p>
-    <p>🥳 Selamat memasuki usia 18 tahun, Naya! 🎈</p>
-    <p>✨ Semoga di umur yang baru ini, semua hal baik datang satu per satu. 🌸</p>
-    <p>💕 Semoga selalu diberikan kesehatan, kebahagiaan, dan banyak alasan untuk tersenyum. 😊</p>
-    <p>🎁 Semoga semua impian dan harapanmu bisa tercapai satu per satu. ✨</p>
-    <p>💜 barakallah fi umrik, Naya! 💜</p>
-</div>
-
-<!-- TOMBOL PESAN RAHASIA -->
-<button class="normal-button" onclick="showMessage()">💌 Buka Pesan Rahasia</button>
-
-<div id="secretMessage">
-    <h2>💌 Pesan Khusus Untuk Naya 💜</h2>
-    <p>🎂 Selamat ulang tahun yang ke-18!</p>
-    <p>🥳 Semoga di usia yang baru ini kamu mendapatkan banyak kebahagiaan, pengalaman baru, dan cerita indah. ✨</p>
-    <p>🌸 Semoga semua impian yang kamu punya bisa tercapai satu per satu.</p>
-    <p>💕 Jangan lupa untuk selalu tersenyum, menikmati setiap momen, dan menghargai setiap perjalananmu.</p>
-    <p>🎁 Semoga hari ini menjadi salah satu hari yang paling berkesan.</p>
-    <h2>🎉🎂 HAPPY 18TH BIRTHDAY NAYA! 🎂🎉</h2>
-    <p>💜 🎀 ✨ 🥳 🎈 🎁 🌸</p>
-</div>
-
-<!-- GALERI KENANGAN -->
-<div class="memory-section">
-    <h2>📸 Foto-Foto Kenangan 💜</h2>
-    <p class="memory-description">📖 Beberapa momen yang sayang untuk dilupakan... 🥹💜</p>
-
-    <!-- TAMBAHKAN/UBAH FOTO KAMU DI SINI -->
-    <div class="gallery">
-        <div class="memory-card" style="--rotation:-2deg" onclick="openPhoto('foto1.jpeg')">
-            <div class="tape"></div>
-            <img src="foto1.jpeg" alt="Foto Kenangan">
-            <div class="photo-caption">💖 Momen indah 💖</div>
-        </div>
-
-        <div class="memory-card" style="--rotation:1.5deg" onclick="openPhoto('foto2.jpeg')">
-            <div class="tape"></div>
-            <img src="foto2.jpeg" alt="Foto Kenangan">
-            <div class="photo-caption">💖 Momen indah 💖</div>
-        </div>
-
-        <div class="memory-card" style="--rotation:-1deg" onclick="openPhoto('foto3.jpeg')">
-            <div class="tape"></div>
-            <img src="foto3.jpeg" alt="Foto Kenangan">
-            <div class="photo-caption">💖 Momen indah 💖</div>
-        </div>
+    <!-- TOMBOL MUSIK -->
+    <div class="music-container">
+        <button id="musicButton" class="music-button" onclick="putarMusik()">
+            <span id="musicIcon" class="music-icon">▶️</span>
+            <span id="musicText">Musik 1</span>
+            <span id="musicStatus" class="music-status">• OFF</span>
+        </button>
+        <button class="change-music-btn" onclick="gantiMusik()" title="Ganti Musik">
+            🔀 Ganti
+        </button>
     </div>
-</div>
 
-<footer>
-    🎀 Dibuat dengan 💜 untuk Naya 🎀
-</footer>
+    <!-- BINTANG -->
+    <div class="star" style="top:10%;left:8%"></div>
+    <div class="star" style="top:20%;left:85%"></div>
+    <div class="star" style="top:40%;left:12%"></div>
+    <div class="star" style="top:60%;left:92%"></div>
+    <div class="star" style="top:75%;left:10%"></div>
+    <div class="star" style="top:85%;left:80%"></div>
 
-</div>
+    <!-- KONTEN UTAMA -->
+    <div class="container">
 
-<!-- POPUP FOTO -->
-<div id="photoPopup" onclick="closePhoto()">
-    <span class="closePhoto">&times;</span>
-    <img id="popupImage" src="" alt="Foto Besar" onclick="event.stopPropagation()">
-</div>
+        <div class="birthday-emojis">
+            🎂 🎈 🎉 ✨ 🎁 💜
+        </div>
 
-<script>
-/* =====================================================
-   PLAYLIST MUSIK
-===================================================== */
-const playlist = [
-    { title: "Musik 1", src: "ulangtahun.mp3" },
-    { title: "Musik 2", src: "ulangtahun2.mp3" },
-    { title: "Musik 3", src: "ulangtahun3.mp3" }
-];
+        <h1>
+            <span class="title-emoji">🎉</span>
+            Happy Birthday NAYA
+            <span class="title-emoji">🎉</span>
+        </h1>
 
-let currentTrackIndex = 0;
+        <div class="eighteen">
+            🎂 ✨ HAPPY 18TH BIRTHDAY ✨ 🎂
+        </div>
 
-const musik = document.getElementById("musik");
-const audioSource = document.getElementById("audioSource");
-const musicButton = document.getElementById("musicButton");
-const musicIcon = document.getElementById("musicIcon");
-const musicText = document.getElementById("musicText");
-const musicStatus = document.getElementById("musicStatus");
+        <div class="subtitle">
+            💜 🎀 Untuk NAYA 🎀 💜
+        </div>
 
-function updateMusicButton() {
-    if (musik.paused) {
-        musicIcon.innerHTML = "▶️";
-        musicText.innerHTML = playlist[currentTrackIndex].title;
-        musicStatus.innerHTML = "• OFF";
-        musicButton.classList.remove("playing");
-    } else {
-        musicIcon.innerHTML = "⏸️";
-        musicText.innerHTML = playlist[currentTrackIndex].title;
-        musicStatus.innerHTML = "• ON";
-        musicButton.classList.add("playing");
-    }
-}
+        <!-- FOTO UTAMA -->
+        <img class="main-photo" src="foto hbd 1.jpeg" alt="Foto Naya" onclick="openPhoto(this.src)">
 
-function putarMusik() {
-    if (musik.paused) {
-        musik.play()
-        .then(() => updateMusicButton())
-        .catch(err => {
-            console.log("Audio error:", err);
-            alert("Musik tidak dapat diputar. Pastikan file lagu ada di folder repositori kamu.");
-        });
-    } else {
-        musik.pause();
+        <!-- PESAN -->
+        <div class="message">
+            <p>🎂 Hari ini bukan hari biasa...</p>
+            <p>🎉 Karena hari ini adalah hari spesial seseorang yang luar biasa. 💜</p>
+            <p>🥳 Selamat memasuki usia 18 tahun, Naya! 🎈</p>
+            <p>✨ Semoga di umur yang baru ini, semua hal baik datang satu per satu. 🌸</p>
+            <p>💕 Semoga selalu diberikan kesehatan, kebahagiaan, dan banyak alasan untuk tersenyum. 😊</p>
+            <p>🎁 Semoga semua impian dan harapanmu bisa tercapai satu per satu. ✨</p>
+            <p>💜 Selamat ulang tahun, Naya! 💜</p>
+        </div>
+
+        <!-- TOMBOL PESAN RAHASIA -->
+        <button class="normal-button" onclick="showMessage()">
+            💌 Buka Pesan Rahasia
+        </button>
+
+        <div id="secretMessage">
+            <h2>💌 Pesan Khusus Untuk Naya 💜</h2>
+            <p>🎂 Selamat ulang tahun yang ke-18!</p>
+            <p>🥳 Semoga di usia yang baru ini kamu mendapatkan banyak kebahagiaan, pengalaman baru, dan cerita indah. ✨</p>
+            <p>🌸 Semoga semua impian yang kamu punya bisa tercapai satu per satu.</p>
+            <p>💕 Jangan lupa untuk selalu tersenyum, menikmati setiap momen, dan menghargai setiap perjalananmu.</p>
+            <p>🎁 Semoga hari ini menjadi salah satu hari yang paling berkesan.</p>
+            <h2>🎉🎂 HAPPY 18TH BIRTHDAY NAYA! 🎂🎉</h2>
+            <p>💜 🎀 ✨ 🥳 🎈 🎁 🌸</p>
+        </div>
+
+        <!-- GALERI -->
+        <div class="memory-section">
+            <h2>
+                <span class="memory-title-emoji">📸</span>
+                Foto-Foto Kenangan
+                <span class="memory-title-emoji">💜</span>
+            </h2>
+
+            <p class="memory-description">
+                📖 Beberapa momen yang sayang untuk dilupakan... 🥹💜
+            </p>
+
+            <div class="gallery">
+                <!-- Foto 1 -->
+                <div class="memory-card" style="--rotation:-2deg" onclick="openPhoto('foto hbd 1.jpeg')">
+                    <div class="tape"></div>
+                    <img src="foto hbd 1.jpeg" alt="Foto Kenangan">
+                    <div class="photo-caption">💖 Momen indah 💖</div>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="memory-card" style="--rotation:1.5deg" onclick="openPhoto('foto beautyfull.jpeg')">
+                    <div class="tape"></div>
+                    <img src="foto beautyfull.jpeg" alt="Foto Kenangan">
+                    <div class="photo-caption">💖 Momen indah 💖</div>
+                </div>
+
+                <!-- Foto 3 -->
+                <div class="memory-card" style="--rotation:-1deg" onclick="openPhoto('foto beautyfull 2.jpeg')">
+                    <div class="tape"></div>
+                    <img src="foto beautyfull 2.jpeg" alt="Foto Kenangan">
+                    <div class="photo-caption">💖 Momen indah 💖</div>
+                </div>
+
+                <!-- Foto 4 -->
+                <div class="memory-card" style="--rotation:2deg" onclick="openPhoto('foto child.jpeg')">
+                    <div class="tape"></div>
+                    <img src="foto child.jpeg" alt="Foto Kenangan">
+                    <div class="photo-caption">💖 Masa Kecil 💖</div>
+                </div>
+
+                <!-- Foto 5 -->
+                <div class="memory-card" style="--rotation:-1.5deg" onclick="openPhoto('foto about you.jpeg')">
+                    <div class="tape"></div>
+                    <img src="foto about you.jpeg" alt="Foto Kenangan">
+                    <div class="photo-caption">💖 About You 💖</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            🎀 Dibuat dengan 💜 untuk Naya 🎀
+        </footer>
+
+    </div>
+
+    <!-- POPUP FOTO -->
+    <div id="photoPopup" onclick="closePhoto()">
+        <span class="closePhoto">&times;</span>
+        <img id="popupImage" src="" alt="Foto" onclick="event.stopPropagation()">
+    </div>
+
+    <script>
+        /* =====================================================
+           MUSIK (DAFTAR 3 MUSIK)
+        ===================================================== */
+        const playlist = [
+            { title: "Musik 1", src: "static/musik/ulangtahun.mp3" },
+            { title: "Musik 2", src: "static/musik/ulangtahun2.mp3" },
+            { title: "Musik 3", src: "static/musik/ulangtahun3.mp3" }
+        ];
+
+        let currentTrackIndex = 0;
+
+        const musik = document.getElementById("musik");
+        const audioSource = document.getElementById("audioSource");
+        const musicButton = document.getElementById("musicButton");
+        const musicIcon = document.getElementById("musicIcon");
+        const musicText = document.getElementById("musicText");
+        const musicStatus = document.getElementById("musicStatus");
+
+        function updateMusicButton() {
+            if (musik.paused) {
+                musicIcon.innerHTML = "▶️";
+                musicText.innerHTML = playlist[currentTrackIndex].title;
+                musicStatus.innerHTML = "• OFF";
+                musicButton.classList.remove("playing");
+            } else {
+                musicIcon.innerHTML = "⏸️";
+                musicText.innerHTML = playlist[currentTrackIndex].title;
+                musicStatus.innerHTML = "• ON";
+                musicButton.classList.add("playing");
+            }
+        }
+
+        function putarMusik() {
+            if (musik.paused) {
+                musik.play()
+                    .then(function () {
+                        updateMusicButton();
+                    })
+                    .catch(function (error) {
+                        console.log("Audio error:", error);
+                        alert("Musik tidak dapat diputar. Pastikan file lagu ada di folder static/musik.");
+                    });
+            } else {
+                musik.pause();
+                updateMusicButton();
+            }
+        }
+
+        function gantiMusik() {
+            currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+            const wasPlaying = !musik.paused;
+
+            musik.pause();
+            audioSource.src = playlist[currentTrackIndex].src;
+            musik.load();
+
+            if (wasPlaying) {
+                musik.play()
+                    .then(function () {
+                        updateMusicButton();
+                    })
+                    .catch(function (error) {
+                        console.log("Audio error:", error);
+                    });
+            } else {
+                updateMusicButton();
+            }
+        }
+
+        musik.addEventListener("play", updateMusicButton);
+        musik.addEventListener("pause", updateMusicButton);
+        musik.addEventListener("ended", updateMusicButton);
+
+        /* =====================================================
+           PESAN RAHASIA
+        ===================================================== */
+        function showMessage() {
+            const message = document.getElementById("secretMessage");
+            if (message.style.display === "block") {
+                message.style.display = "none";
+            } else {
+                message.style.display = "block";
+                createHearts();
+            }
+        }
+
+        /* =====================================================
+           FOTO BESAR
+        ===================================================== */
+        function openPhoto(src) {
+            const popup = document.getElementById("photoPopup");
+            const image = document.getElementById("popupImage");
+            image.src = src;
+            popup.style.display = "flex";
+        }
+
+        function closePhoto() {
+            document.getElementById("photoPopup").style.display = "none";
+        }
+
+        /* =====================================================
+           HATI
+        ===================================================== */
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            const hearts = ["💜", "💜", "💕", "💗", "💖", "💝", "🎀", "✨", "🌸"];
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + "%";
+            heart.style.fontSize = (15 + Math.random() * 25) + "px";
+            heart.style.animationDuration = (5 + Math.random() * 4) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(function () {
+                heart.remove();
+            }, 9000);
+        }
+
+        setInterval(createHeart, 1800);
         updateMusicButton();
-    }
-}
-
-function gantiMusik() {
-    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-    const wasPlaying = !musik.paused;
-
-    musik.pause();
-    audioSource.src = playlist[currentTrackIndex].src;
-    musik.load();
-
-    if (wasPlaying) {
-        musik.play().then(() => updateMusicButton()).catch(err => console.log(err));
-    } else {
-        updateMusicButton();
-    }
-}
-
-musik.addEventListener("play", updateMusicButton);
-musik.addEventListener("pause", updateMusicButton);
-
-/* =====================================================
-   PESAN RAHASIA
-===================================================== */
-function showMessage() {
-    const message = document.getElementById("secretMessage");
-    if (message.style.display === "block") {
-        message.style.display = "none";
-    } else {
-        message.style.display = "block";
-        createHearts();
-    }
-}
-
-/* =====================================================
-   FOTO POPUP
-===================================================== */
-function openPhoto(src) {
-    const popup = document.getElementById("photoPopup");
-    const image = document.getElementById("popupImage");
-    image.src = src;
-    popup.style.display = "flex";
-}
-
-function closePhoto() {
-    document.getElementById("photoPopup").style.display = "none";
-}
-
-/* =====================================================
-   EFEK HATI UNGU TERBANG
-===================================================== */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    const hearts = ["💜", "💜", "💕", "💗", "💖", "💝", "🎀", "✨", "🌸"];
-    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-    heart.style.left = Math.random() * 100 + "%";
-    heart.style.fontSize = (15 + Math.random() * 25) + "px";
-    heart.style.animationDuration = (5 + Math.random() * 4) + "s";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 9000);
-}
-
-function createHearts() {
-    for(let i = 0; i < 15; i++) {
-        setTimeout(createHeart, i * 200);
-    }
-}
-
-setInterval(createHeart, 1800);
-updateMusicButton();
-</script>
-
+    </script>
 </body>
+
 </html>
