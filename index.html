@@ -11,6 +11,7 @@
     <title>🎂 Happy 18th Birthday Naya 🎂</title>
 
     <style>
+
         /* =========================================================
            RESET & DASAR
         ========================================================= */
@@ -33,9 +34,22 @@
             color: #4a3055;
 
             background:
-                radial-gradient(circle at 10% 10%, rgba(255,255,255,.7), transparent 25%),
-                radial-gradient(circle at 90% 30%, rgba(255,220,255,.5), transparent 25%),
-                linear-gradient(135deg, #d8c4e8, #f3e6fa, #dcc8eb);
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(255,255,255,.7),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 30%,
+                    rgba(255,220,255,.5),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #d8c4e8,
+                    #f3e6fa,
+                    #dcc8eb
+                );
 
             transition: opacity .6s ease;
         }
@@ -44,14 +58,17 @@
             overflow: hidden;
         }
 
+
         /* =========================================================
            BACKGROUND BUKU
         ========================================================= */
 
         body::before {
             content: "";
+
             position: fixed;
             inset: 0;
+
             pointer-events: none;
 
             background-image:
@@ -59,11 +76,12 @@
                     0deg,
                     transparent,
                     transparent 31px,
-                    rgba(120, 70, 150, .10) 32px
+                    rgba(120,70,150,.10) 32px
                 );
 
             z-index: -5;
         }
+
 
         /* =========================================================
            OPENING SCREEN
@@ -72,6 +90,7 @@
         #opening {
             position: fixed;
             inset: 0;
+
             z-index: 999999;
 
             display: flex;
@@ -81,8 +100,17 @@
             padding: 25px;
 
             background:
-                radial-gradient(circle at 50% 20%, #f9edff, transparent 35%),
-                linear-gradient(135deg, #7c3f9d, #9b59b6, #6d3b86);
+                radial-gradient(
+                    circle at 50% 20%,
+                    #f9edff,
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #7c3f9d,
+                    #9b59b6,
+                    #6d3b86
+                );
 
             transition:
                 opacity .9s ease,
@@ -110,36 +138,54 @@
         }
 
         @keyframes giftFloat {
+
             0%, 100% {
-                transform: translateY(0) rotate(-4deg);
+                transform:
+                    translateY(0)
+                    rotate(-4deg);
             }
 
             50% {
-                transform: translateY(-15px) rotate(4deg);
+                transform:
+                    translateY(-15px)
+                    rotate(4deg);
             }
+
         }
 
         .opening-content h2 {
             font-family: Georgia, serif;
-            font-size: clamp(30px, 8vw, 50px);
+
+            font-size:
+                clamp(30px, 8vw, 50px);
+
             margin-bottom: 12px;
 
-            text-shadow: 0 5px 20px rgba(0,0,0,.2);
+            text-shadow:
+                0 5px 20px rgba(0,0,0,.2);
         }
 
         .opening-content p {
             font-size: 17px;
             line-height: 1.7;
+
             margin-bottom: 28px;
+
             opacity: .95;
         }
 
         .open-button {
-            border: 2px solid rgba(255,255,255,.8);
-            background: rgba(255,255,255,.15);
+            border:
+                2px solid rgba(255,255,255,.8);
+
+            background:
+                rgba(255,255,255,.15);
+
             color: white;
 
-            padding: 16px 32px;
+            padding:
+                16px 32px;
+
             border-radius: 50px;
 
             font-size: 17px;
@@ -156,9 +202,14 @@
         }
 
         .open-button:hover {
-            transform: translateY(-4px) scale(1.04);
-            background: rgba(255,255,255,.25);
+            transform:
+                translateY(-4px)
+                scale(1.04);
+
+            background:
+                rgba(255,255,255,.25);
         }
+
 
         /* =========================================================
            CONFETTI
@@ -167,6 +218,7 @@
         .confetti {
             position: fixed;
             top: -20px;
+
             z-index: 999998;
 
             width: 9px;
@@ -179,10 +231,12 @@
         }
 
         @keyframes confettiFall {
+
             0% {
                 transform:
                     translateY(0)
                     rotate(0deg);
+
                 opacity: 1;
             }
 
@@ -190,9 +244,12 @@
                 transform:
                     translateY(110vh)
                     rotate(720deg);
+
                 opacity: 0;
             }
+
         }
+
 
         /* =========================================================
            DEKORASI EMOJI
@@ -200,15 +257,35 @@
 
         .emoji-decoration {
             position: fixed;
+
             z-index: 1;
+
             pointer-events: none;
 
             font-size: 30px;
+
             opacity: .65;
 
             animation:
                 emojiFloat 6s ease-in-out infinite;
         }
+
+        @keyframes emojiFloat {
+
+            0%, 100% {
+                transform:
+                    translateY(0)
+                    rotate(-5deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-15px)
+                    rotate(5deg);
+            }
+
+        }
+
 
         /* =========================================================
            BINTANG
@@ -221,6 +298,7 @@
             height: 6px;
 
             background: white;
+
             border-radius: 50%;
 
             opacity: .8;
@@ -229,10 +307,12 @@
                 twinkle 2s infinite alternate;
 
             z-index: 1;
+
             pointer-events: none;
         }
 
         @keyframes twinkle {
+
             from {
                 opacity: .25;
                 transform: scale(.7);
@@ -242,7 +322,9 @@
                 opacity: 1;
                 transform: scale(1.4);
             }
+
         }
+
 
         /* =========================================================
            MUSIC PLAYER
@@ -262,9 +344,12 @@
 
         .music-button,
         .change-music-btn {
-            border: 2px solid #b892d1;
+            border:
+                2px solid #b892d1;
 
-            background: rgba(248,242,252,.95);
+            background:
+                rgba(248,242,252,.95);
+
             color: #5c3275;
 
             border-radius: 50px;
@@ -287,16 +372,19 @@
             align-items: center;
             gap: 7px;
 
-            padding: 11px 16px;
+            padding:
+                11px 16px;
         }
 
         .change-music-btn {
-            padding: 11px 14px;
+            padding:
+                11px 14px;
         }
 
         .music-button:hover,
         .change-music-btn:hover {
-            transform: translateY(-3px);
+            transform:
+                translateY(-3px);
         }
 
         .music-button.playing {
@@ -313,17 +401,21 @@
             opacity: .75;
         }
 
+
         /* =========================================================
            MAIN PAPER
         ========================================================= */
 
         .container {
             position: relative;
+
             z-index: 2;
 
-            width: min(1050px, calc(100% - 30px));
+            width:
+                min(1050px, calc(100% - 30px));
 
-            margin: 35px auto;
+            margin:
+                35px auto;
 
             padding:
                 60px
@@ -358,13 +450,16 @@
                 rgba(180,100,210,.25);
         }
 
+
         /* =========================================================
            SCROLL REVEAL
         ========================================================= */
 
         .reveal {
             opacity: 0;
-            transform: translateY(35px);
+
+            transform:
+                translateY(35px);
 
             transition:
                 opacity .8s ease,
@@ -373,8 +468,11 @@
 
         .reveal.show {
             opacity: 1;
-            transform: translateY(0);
+
+            transform:
+                translateY(0);
         }
+
 
         /* =========================================================
            TITLE
@@ -382,7 +480,9 @@
 
         .birthday-emojis {
             font-size: 30px;
+
             margin-bottom: 12px;
+
             letter-spacing: 6px;
 
             animation:
@@ -392,7 +492,10 @@
         h1 {
             position: relative;
 
-            font-family: Georgia, "Times New Roman", serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size:
                 clamp(38px, 7vw, 72px);
@@ -401,7 +504,8 @@
 
             color: #5c3275;
 
-            margin: 10px 0;
+            margin:
+                10px 0;
 
             text-shadow:
                 2px 3px 0 rgba(100,50,130,.12);
@@ -411,8 +515,10 @@
         }
 
         @keyframes titleAnimation {
+
             from {
                 opacity: 0;
+
                 transform:
                     translateY(-30px)
                     scale(.9);
@@ -420,10 +526,12 @@
 
             to {
                 opacity: 1;
+
                 transform:
                     translateY(0)
                     scale(1);
             }
+
         }
 
         .title-emoji {
@@ -432,13 +540,15 @@
             font-size:
                 clamp(30px, 6vw, 42px);
 
-            margin: 0 5px;
+            margin:
+                0 5px;
 
             animation:
                 emojiBounce 1.5s infinite alternate;
         }
 
         @keyframes emojiBounce {
+
             from {
                 transform:
                     translateY(0)
@@ -450,7 +560,9 @@
                     translateY(-8px)
                     rotate(5deg);
             }
+
         }
+
 
         /* =========================================================
            18TH BADGE
@@ -459,9 +571,11 @@
         .eighteen {
             display: inline-block;
 
-            margin: 18px auto;
+            margin:
+                18px auto;
 
-            padding: 13px 25px;
+            padding:
+                13px 25px;
 
             color: #4c2363;
 
@@ -477,7 +591,9 @@
 
             border-radius: 12px;
 
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
             font-size:
                 clamp(17px, 4vw, 22px);
@@ -492,6 +608,7 @@
         }
 
         @keyframes birthday18 {
+
             from {
                 transform:
                     rotate(-1deg)
@@ -503,10 +620,13 @@
                     rotate(1deg)
                     scale(1.035);
             }
+
         }
 
         .subtitle {
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
             font-size:
                 clamp(18px, 4vw, 23px);
@@ -515,6 +635,7 @@
 
             margin-bottom: 32px;
         }
+
 
         /* =========================================================
            MAIN PHOTO
@@ -552,7 +673,8 @@
 
             border-radius: 50%;
 
-            border: 8px solid white;
+            border:
+                8px solid white;
 
             cursor: pointer;
 
@@ -560,10 +682,12 @@
         }
 
         .main-photo-wrapper:hover .main-photo {
-            transform: scale(1.035);
+            transform:
+                scale(1.035);
         }
 
         @keyframes floating {
+
             0%, 100% {
                 transform:
                     translateY(0)
@@ -575,7 +699,9 @@
                     translateY(-12px)
                     rotate(1deg);
             }
+
         }
+
 
         /* =========================================================
            MESSAGE
@@ -584,9 +710,11 @@
         .message {
             max-width: 760px;
 
-            margin: 50px auto 35px;
+            margin:
+                50px auto 35px;
 
-            padding: 30px 35px;
+            padding:
+                30px 35px;
 
             text-align: left;
 
@@ -600,12 +728,15 @@
             border-left:
                 5px solid #b582d6;
 
-            border-radius: 0 15px 15px 0;
+            border-radius:
+                0 15px 15px 0;
 
             box-shadow:
                 0 8px 20px rgba(70,30,90,.10);
 
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
             font-size: 18px;
 
@@ -613,8 +744,10 @@
         }
 
         .message p {
-            margin: 14px 0;
+            margin:
+                14px 0;
         }
+
 
         /* =========================================================
            BUTTON
@@ -623,7 +756,8 @@
         .normal-button {
             border: none;
 
-            padding: 15px 28px;
+            padding:
+                15px 28px;
 
             border-radius: 50px;
 
@@ -656,8 +790,9 @@
                 0 12px 25px rgba(70,30,90,.25);
         }
 
+
         /* =========================================================
-           SECRET LETTER
+           SECRET MESSAGE
         ========================================================= */
 
         #secretMessage {
@@ -665,7 +800,8 @@
 
             max-width: 720px;
 
-            margin: 28px auto;
+            margin:
+                28px auto;
 
             padding: 30px;
 
@@ -686,21 +822,30 @@
             box-shadow:
                 0 10px 25px rgba(70,30,90,.12);
 
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
             line-height: 1.9;
 
-            animation:
-                letterOpen .8s ease;
+            opacity: 0;
+
+            transform:
+                translateY(-15px);
         }
 
         #secretMessage.show {
             display: block;
+
+            animation:
+                letterOpen .8s ease forwards;
         }
 
         .letter-header {
             text-align: center;
+
             color: #63357e;
+
             margin-bottom: 20px;
         }
 
@@ -714,7 +859,9 @@
 
         .secret-text {
             opacity: 0;
-            transform: translateY(12px);
+
+            transform:
+                translateY(12px);
 
             animation:
                 textAppear .8s ease forwards;
@@ -740,9 +887,19 @@
             animation-delay: 1s;
         }
 
+        .secret-text:nth-child(7) {
+            animation-delay: 1.2s;
+        }
+
+        .secret-text:nth-child(8) {
+            animation-delay: 1.4s;
+        }
+
         @keyframes letterOpen {
+
             from {
                 opacity: 0;
+
                 transform:
                     translateY(-15px)
                     scale(.97);
@@ -750,18 +907,25 @@
 
             to {
                 opacity: 1;
+
                 transform:
                     translateY(0)
                     scale(1);
             }
+
         }
 
         @keyframes textAppear {
+
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
+
         }
+
 
         /* =========================================================
            MEMORY SECTION
@@ -777,7 +941,9 @@
         }
 
         .memory-section h2 {
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
             font-size:
                 clamp(27px, 6vw, 36px);
@@ -799,11 +965,14 @@
 
             margin-bottom: 40px;
 
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
             font-size:
                 clamp(16px, 4vw, 18px);
         }
+
 
         /* =========================================================
            GALLERY
@@ -815,10 +984,12 @@
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 38px 25px;
+            gap:
+                38px 25px;
 
             padding: 10px;
         }
+
 
         /* =========================================================
            MEMORY CARD
@@ -879,8 +1050,10 @@
         }
 
         .memory-card:hover img {
-            filter: brightness(1.04);
+            filter:
+                brightness(1.04);
         }
+
 
         /* =========================================================
            TAPE
@@ -908,6 +1081,7 @@
             z-index: 3;
         }
 
+
         /* =========================================================
            CAPTION
         ========================================================= */
@@ -926,6 +1100,7 @@
 
             line-height: 1.4;
         }
+
 
         /* =========================================================
            PHOTO POPUP
@@ -950,7 +1125,8 @@
 
             opacity: 0;
 
-            transition: opacity .25s ease;
+            transition:
+                opacity .25s ease;
         }
 
         #photoPopup.show {
@@ -972,13 +1148,16 @@
             box-shadow:
                 0 15px 60px rgba(0,0,0,.6);
 
-            transform: scale(.9);
+            transform:
+                scale(.9);
 
-            transition: transform .3s ease;
+            transition:
+                transform .3s ease;
         }
 
         #photoPopup.show #popupImage {
-            transform: scale(1);
+            transform:
+                scale(1);
         }
 
         .closePhoto {
@@ -995,6 +1174,7 @@
 
             line-height: 1;
         }
+
 
         /* =========================================================
            FLOATING HEART
@@ -1016,6 +1196,7 @@
         }
 
         @keyframes heartUp {
+
             from {
                 transform:
                     translateY(0)
@@ -1031,7 +1212,9 @@
 
                 opacity: 0;
             }
+
         }
+
 
         /* =========================================================
            FINAL MESSAGE
@@ -1068,17 +1251,23 @@
         }
 
         @keyframes heartBeat {
+
             0%, 100% {
-                transform: scale(1);
+                transform:
+                    scale(1);
             }
 
             50% {
-                transform: scale(1.15);
+                transform:
+                    scale(1.15);
             }
+
         }
 
         .final-message h2 {
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
             color: #5c3275;
 
@@ -1091,12 +1280,15 @@
         .final-message p {
             color: #72498a;
 
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
             line-height: 1.8;
 
             font-size: 17px;
         }
+
 
         /* =========================================================
            FOOTER
@@ -1112,12 +1304,15 @@
 
             color: #72498a;
 
-            font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                serif;
 
             font-size: 14px;
 
             line-height: 1.7;
         }
+
 
         /* =========================================================
            MOBILE
@@ -1126,9 +1321,11 @@
         @media (max-width: 700px) {
 
             .container {
-                width: calc(100% - 20px);
+                width:
+                    calc(100% - 20px);
 
-                margin: 15px auto;
+                margin:
+                    15px auto;
 
                 padding:
                     45px
@@ -1174,8 +1371,15 @@
                 line-height: 1.8;
             }
 
-            .secretMessage {
+            /* FIX PESAN RAHASIA */
+
+            #secretMessage {
                 padding: 22px;
+
+                margin-left: 5px;
+                margin-right: 5px;
+
+                font-size: 15px;
             }
 
             .music-container {
@@ -1185,16 +1389,14 @@
 
             .music-button {
                 padding:
-                    9px
-                    12px;
+                    9px 12px;
 
                 font-size: 12px;
             }
 
             .change-music-btn {
                 padding:
-                    9px
-                    11px;
+                    9px 11px;
 
                 font-size: 12px;
             }
@@ -1211,7 +1413,9 @@
                 width: 4px;
                 height: 4px;
             }
+
         }
+
 
         /* =========================================================
            HP KECIL
@@ -1248,8 +1452,7 @@
 
             .gallery {
                 gap:
-                    25px
-                    8px;
+                    25px 8px;
             }
 
             .memory-card {
@@ -1276,7 +1479,13 @@
             .opening-content p {
                 font-size: 15px;
             }
+
+            #secretMessage {
+                padding: 18px;
+            }
+
         }
+
 
         /* =========================================================
            REDUCE MOTION
@@ -1287,16 +1496,29 @@
             *,
             *::before,
             *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: .01ms !important;
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                scroll-behavior:
+                    auto !important;
+
+                transition-duration:
+                    .01ms !important;
             }
+
         }
+
     </style>
+
 </head>
 
+
 <body class="locked">
+
 
     <!-- =========================================================
          OPENING
@@ -1336,42 +1558,50 @@
          DEKORASI
     ========================================================= -->
 
-    <div class="emoji-decoration"
+    <div
+        class="emoji-decoration"
         style="top:8%;left:5%;animation-delay:0s;">
         🎈
     </div>
 
-    <div class="emoji-decoration"
+    <div
+        class="emoji-decoration"
         style="top:18%;right:7%;animation-delay:1s;">
         🎁
     </div>
 
-    <div class="emoji-decoration"
+    <div
+        class="emoji-decoration"
         style="top:35%;left:4%;animation-delay:2s;">
         💜
     </div>
 
-    <div class="emoji-decoration"
+    <div
+        class="emoji-decoration"
         style="top:45%;right:4%;animation-delay:1.5s;">
         ✨
     </div>
 
-    <div class="emoji-decoration"
+    <div
+        class="emoji-decoration"
         style="top:65%;left:6%;animation-delay:3s;">
         🎀
     </div>
 
-    <div class="emoji-decoration"
+    <div
+        class="emoji-decoration"
         style="top:75%;right:6%;animation-delay:2.5s;">
         💖
     </div>
 
-    <div class="emoji-decoration"
+    <div
+        class="emoji-decoration"
         style="top:88%;left:12%;animation-delay:1s;">
         🌸
     </div>
 
-    <div class="emoji-decoration"
+    <div
+        class="emoji-decoration"
         style="top:90%;right:12%;animation-delay:3s;">
         🥳
     </div>
@@ -1381,12 +1611,35 @@
          BINTANG
     ========================================================= -->
 
-    <div class="star" style="top:10%;left:8%"></div>
-    <div class="star" style="top:20%;left:85%"></div>
-    <div class="star" style="top:40%;left:12%"></div>
-    <div class="star" style="top:60%;left:92%"></div>
-    <div class="star" style="top:75%;left:10%"></div>
-    <div class="star" style="top:85%;left:80%"></div>
+    <div
+        class="star"
+        style="top:10%;left:8%">
+    </div>
+
+    <div
+        class="star"
+        style="top:20%;left:85%">
+    </div>
+
+    <div
+        class="star"
+        style="top:40%;left:12%">
+    </div>
+
+    <div
+        class="star"
+        style="top:60%;left:92%">
+    </div>
+
+    <div
+        class="star"
+        style="top:75%;left:10%">
+    </div>
+
+    <div
+        class="star"
+        style="top:85%;left:80%">
+    </div>
 
 
     <!-- =========================================================
@@ -1419,7 +1672,8 @@
             class="music-button"
             onclick="putarMusik()">
 
-            <span id="musicIcon"
+            <span
+                id="musicIcon"
                 class="music-icon">
                 ▶️
             </span>
@@ -1428,7 +1682,8 @@
                 Musik 1
             </span>
 
-            <span id="musicStatus"
+            <span
+                id="musicStatus"
                 class="music-status">
                 • OFF
             </span>
@@ -1454,7 +1709,9 @@
     <main class="container">
 
 
-        <!-- HEADER -->
+        <!-- =====================================================
+             HEADER
+        ===================================================== -->
 
         <section>
 
@@ -1539,7 +1796,7 @@
 
             <p>
                 🎁 Semoga setiap harimu diberi kemudahan
-                 oleh Allah SWT. ✨
+                oleh Allah SWT. ✨
             </p>
 
             <p>
@@ -1553,7 +1810,9 @@
              SECRET MESSAGE
         ===================================================== -->
 
-        <section class="reveal">
+        <section
+            id="pesan"
+            class="reveal">
 
             <button
                 id="secretButton"
@@ -1611,25 +1870,32 @@
                     hari yang paling berkesan.
                 </p>
 
-                
-                 <p class="secret-text">
+
+                <p class="secret-text">
                     I hope you find someone better than me,
-                     and I will also strive to become a better person than I was before.
+                    and I will also strive to become a better
+                    person than I was before.
                 </p>
 
 
-                   <p class="secret-text">
+                <p class="secret-text">
                     I would be happy if you felt happy,
-                       even if you weren't with me.
+                    even if you weren't with me.
                 </p>
 
-                
+
                 <p
                     class="secret-text"
-                    style="text-align:center;font-weight:bold;color:#63357e;">
+                    style="
+                        text-align:center;
+                        font-weight:bold;
+                        color:#63357e;
+                    ">
 
                     🎉🎂 HAPPY 18TH BIRTHDAY NAYA! 🎂🎉
+
                     <br><br>
+
                     💜 🎀 ✨ 🥳 🎈 🎁 🌸
 
                 </p>
@@ -1643,7 +1909,8 @@
              GALLERY
         ===================================================== -->
 
-        <section class="memory-section reveal">
+        <section
+            class="memory-section reveal">
 
             <h2>
 
@@ -2050,7 +2317,9 @@
         <footer>
 
             🎀 Dibuat dengan 💜 oleh calon engineer untuk Naya 🎀
+
             <br>
+
             ✨ Semoga suka dengan kejutan kecil ini ✨
 
         </footer>
@@ -2088,6 +2357,7 @@
     ========================================================= -->
 
     <script>
+
 
         /* =====================================================
            PLAYLIST
@@ -2148,25 +2418,29 @@
 
             if (musik.paused) {
 
-                musicIcon.innerHTML = "▶️";
+                musicIcon.textContent = "▶️";
 
-                musicText.innerHTML =
+                musicText.textContent =
                     playlist[currentTrackIndex].title;
 
-                musicStatus.innerHTML = "• OFF";
+                musicStatus.textContent = "• OFF";
 
-                musicButton.classList.remove("playing");
+                musicButton.classList.remove(
+                    "playing"
+                );
 
             } else {
 
-                musicIcon.innerHTML = "⏸️";
+                musicIcon.textContent = "⏸️";
 
-                musicText.innerHTML =
+                musicText.textContent =
                     playlist[currentTrackIndex].title;
 
-                musicStatus.innerHTML = "• ON";
+                musicStatus.textContent = "• ON";
 
-                musicButton.classList.add("playing");
+                musicButton.classList.add(
+                    "playing"
+                );
 
             }
 
@@ -2214,8 +2488,9 @@
 
 
             currentTrackIndex =
-                (currentTrackIndex + 1)
-                % playlist.length;
+                (
+                    currentTrackIndex + 1
+                ) % playlist.length;
 
 
             musik.pause();
@@ -2272,22 +2547,23 @@
         function openBirthday() {
 
             const opening =
-                document.getElementById("opening");
+                document.getElementById(
+                    "opening"
+                );
+
 
             document.body.classList.remove(
                 "locked"
             );
 
 
-            opening.classList.add("hide");
+            opening.classList.add(
+                "hide"
+            );
 
 
             createConfetti();
 
-
-            /* Musik langsung dicoba
-               karena user baru saja
-               menekan tombol */
 
             musik.play()
                 .then(function () {
@@ -2341,14 +2617,16 @@
             ) {
 
                 const confetti =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
 
 
                 confetti.className =
                     "confetti";
 
 
-                confetti.innerHTML =
+                confetti.textContent =
                     symbols[
                         Math.floor(
                             Math.random()
@@ -2362,18 +2640,21 @@
 
 
                 confetti.style.fontSize =
-                    (10 + Math.random() * 16)
-                    + "px";
+                    (
+                        10 +
+                        Math.random() * 16
+                    ) + "px";
 
 
                 confetti.style.animationDuration =
-                    (2.5 + Math.random() * 3)
-                    + "s";
+                    (
+                        2.5 +
+                        Math.random() * 3
+                    ) + "s";
 
 
                 confetti.style.animationDelay =
-                    Math.random() * .8
-                    + "s";
+                    Math.random() * .8 + "s";
 
 
                 document.body.appendChild(
@@ -2409,16 +2690,48 @@
                 );
 
 
-            if (
-                message.classList.contains("show")
-            ) {
+            if (!message || !button) {
+
+                console.error(
+                    "Pesan rahasia tidak ditemukan."
+                );
+
+                return;
+            }
+
+
+            const isOpen =
+                message.classList.contains(
+                    "show"
+                );
+
+
+            if (isOpen) {
 
                 message.classList.remove(
                     "show"
                 );
 
-                button.innerHTML =
+
+                button.textContent =
                     "💌 Buka Pesan Rahasia";
+
+
+                /* Hapus hash dari URL */
+
+                if (
+                    window.location.hash ===
+                    "#pesan"
+                ) {
+
+                    history.replaceState(
+                        null,
+                        "",
+                        window.location.pathname +
+                        window.location.search
+                    );
+
+                }
 
             } else {
 
@@ -2426,12 +2739,90 @@
                     "show"
                 );
 
-                button.innerHTML =
+
+                button.textContent =
                     "💌 Tutup Pesan";
+
+
+                /* Tambahkan #pesan ke URL */
+
+                history.replaceState(
+                    null,
+                    "",
+                    "#pesan"
+                );
+
 
                 createHeart();
                 createHeart();
                 createHeart();
+
+
+                /* Scroll otomatis */
+
+                setTimeout(function () {
+
+                    message.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }, 100);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           BUKA PESAN DARI URL
+           
+           Contoh:
+           websitekamu.com/#pesan
+        ===================================================== */
+
+        function checkMessageURL() {
+
+            if (
+                window.location.hash ===
+                "#pesan"
+            ) {
+
+                const message =
+                    document.getElementById(
+                        "secretMessage"
+                    );
+
+                const button =
+                    document.getElementById(
+                        "secretButton"
+                    );
+
+
+                if (
+                    message &&
+                    button
+                ) {
+
+                    message.classList.add(
+                        "show"
+                    );
+
+
+                    button.textContent =
+                        "💌 Tutup Pesan";
+
+
+                    setTimeout(function () {
+
+                        message.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+
+                    }, 700);
+
+                }
 
             }
 
@@ -2462,13 +2853,15 @@
                 "flex";
 
 
-            requestAnimationFrame(function () {
+            requestAnimationFrame(
+                function () {
 
-                popup.classList.add(
-                    "show"
-                );
+                    popup.classList.add(
+                        "show"
+                    );
 
-            });
+                }
+            );
 
 
             document.body.style.overflow =
@@ -2552,7 +2945,7 @@
             ];
 
 
-            heart.innerHTML =
+            heart.textContent =
                 hearts[
                     Math.floor(
                         Math.random()
@@ -2562,18 +2955,21 @@
 
 
             heart.style.left =
-                Math.random() * 100
-                + "%";
+                Math.random() * 100 + "%";
 
 
             heart.style.fontSize =
-                (15 + Math.random() * 25)
-                + "px";
+                (
+                    15 +
+                    Math.random() * 25
+                ) + "px";
 
 
             heart.style.animationDuration =
-                (5 + Math.random() * 4)
-                + "s";
+                (
+                    5 +
+                    Math.random() * 4
+                ) + "s";
 
 
             document.body.appendChild(
@@ -2657,8 +3053,19 @@
 
         updateMusicButton();
 
+
+        /* =====================================================
+           CEK URL #pesan
+        ===================================================== */
+
+        window.addEventListener(
+            "load",
+            checkMessageURL
+        );
+
+
     </script>
 
 </body>
 
-        </html>
+    </html>
